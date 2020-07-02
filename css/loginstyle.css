@@ -1,0 +1,33 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+    text-align: center;
+}
+
+body {
+    background-color: #EEEEEE;
+}
+
+nav {
+    background-color: #CCCCCC;
+    text-align: center;
+    padding: 30px;
+}
+
+nav h1 {
+    font-size: 50px;
+}
+
+#form {
+    margin-top: 100px;
+    background-color: #AAAAAA;
+    width: 50%;
+    text-align: center;
+    display: inline-block;
+    padding: 30px;
+}
+
+#form h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
