@@ -1,14 +1,16 @@
 <?php
-$username = $_POST["username"];
-$password = $_POST["password"];
-$useraccountcreated = ($_POST["password"] == "1") ? true : false;
+$username = $_GET["username"];
+$password = $_GET["password"];
+$useraccountcreated = ($_GET["newaccount"] == "1") ? true : false;
 
 function create_account($username, $password) {
-    $_password = password_hash($password);
-    $data = array();
+    $_password = password_hash($password, PASSWORD_DEFAULT);
+    $data = (object)array();
     $data->username = $username;
     $data->password = $password;
-    file_put_contents("users/" . $username . ".json", json_encode($data));
+    $file = fopen("users/" . $username . ".json", "w+");
+    fwrite($file, json_encode($data));
+    fclose($file);
 }
 
 function verify_account($username, $password) {
