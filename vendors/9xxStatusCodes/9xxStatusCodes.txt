@@ -1,0 +1,18 @@
+900: Authentication completed successfully
+901: Authentication failed: incorrect username or password
+902: Authentication failed: incorrect username
+903: Authentication failed: incorrect password
+904: Authentication failed: client sent malformed request
+905: Authentication failed: server unable to find account with provided username
+906: Authentication failed: server unable to write to file when creating account
+907: Authentication failed: server unable to create account because of prohibited, too short, or too long username
+908: Authentication failed: server unable to create account because of prohibited username
+909: Authentication failed: server unable to create account because username is too long
+910: Authentication failed: server unable to create account because username is too short
+911: Authentication failed: server unable to create account because username is reserved
+912: Authentication failed: server unable to create account because username is already taken
+913: Authentication failed: server unable to retrieve account data because of a file reading, lack of permissions, malformed file, or parsing error
+914: Authentication failed: server unable to retreive account data because of a file reading error
+915: Authentication failed: server unable to retreive account data because of a lack of permissions
+916: Authentication failed: server unable to retreive account data because of a malformed file
+917: Authentication failed: server unable to retreive account data because of a parsing error
