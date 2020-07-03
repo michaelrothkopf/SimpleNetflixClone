@@ -1,3 +1,5 @@
+
+
 var video_showcase = document.getElementById("video_showcase");
 videos = {
     1:["img/large.png","White Screen"],

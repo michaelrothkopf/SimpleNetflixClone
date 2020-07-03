@@ -42,18 +42,20 @@ function login() {
             }
             */
            
-            switch(this.status) {
-                case 900:
+            switch(this.responseText) {
+                case "900":
                     window.location.href = "App.html";
-                case 901:
+                case "901":
                     document.getElementById("errorText").innerHTML = "Error! Incorrect username or password.";
-                case 905:
+                case "905":
                     document.getElementById("errorText").innerHTML = "Account doesn't exist.";
-                case 912:
+                case "912":
                     document.getElementById("errorText").innerHTML = "Error! Username already taken.";
+                default:
+                    console.log(this.responseText);
             }
         }
         
     }
-    http.send("username="+username+"&password="+password+"&newaccount="+toString(iscreatingnewaccount));
+    http.send("username="+username+"&password="+password+"&newaccount="+iscreatingnewaccount);
 }

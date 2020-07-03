@@ -13,13 +13,13 @@ nav {
     margin-right: 0px;
 }
 
-nav a {
+.nav-enabled {
     color: white;
     text-decoration: none;
     padding: 25px;
 }
 
-nav a:hover {
+.nav-enabled:hover {
     color: gray;
     background-color: white;
 }
@@ -62,4 +62,10 @@ nav a:hover {
 
 .nav-disabled {
     color: lightgray;
+    text-decoration: none;
+    padding: 25px;
+}
+
+.nav-disabled:hover {
+    background-color: darkgray;
 }

@@ -1,22 +1,20 @@
 <?php
-$username = $_GET["username"];
-$password = $_GET["password"];
-$useraccountcreated = ($_GET["newaccount"] == "1") ? true : false;
+$username = $_POST["username"];
+$password = $_POST["password"];
+$useraccountcreated = ($_POST["newaccount"] == "1") ? true : false;
 
 function create_account($username, $password) {
     $_password = password_hash($password, PASSWORD_DEFAULT);
     $data = (object)array();
     $data->username = $username;
-    $data->password = $password;
-    $file = fopen("users/" . $username . ".json", "w+");
-    fwrite($file, json_encode($data));
-    fclose($file);
+    $data->password = $_password;
+    file_put_contents("../users/" . $username . ".json", json_encode($data));
 }
 
 function verify_account($username, $password) {
-    $filecontents = file_get_contents("users/" . $username . ".json");
+    $filecontents = file_get_contents("../users/" . $username . ".json");
     $data = json_decode($filecontents);
-    if (password_verify($data->password, $password)) {
+    if (password_verify($password, $data->password)) {
         return true;
     } else {
         return false;
@@ -24,25 +22,25 @@ function verify_account($username, $password) {
 }
 
 if ($useraccountcreated) {
-    if (file_exists("users/" . $username . ".json")) {
-        http_response_code(912);
+    if (file_exists("../users/" . $username . ".json")) {
+        http_response_code(200);
         echo "912";
     } else {
         create_account($username, $password);
-        http_response_code(900);
+        http_response_code(200);
         echo "900";
     }
 } else {
-    if (file_exists("users/" . $username . ".json")) {
+    if (file_exists("../users/" . $username . ".json")) {
         if (verify_account($username, $password)) {
-            http_response_code(900);
+            http_response_code(200);
             echo "900";
         } else {
-            http_response_code(901);
+            http_response_code(200);
             echo "901";
         }
     } else {
-        http_response_code(905);
+        http_response_code(200);
         echo "905";
     }
 }
