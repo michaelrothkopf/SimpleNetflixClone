@@ -7,10 +7,6 @@ function wait(ms){
  }
 
 function login() {
-    /*
-    For the purposes of the front-end only simple clone that I am creating, I have decided to opt for 
-    a simple redirect. Below is the code to query the server to prove I know how.
-    */
     
     _username = document.getElementById("username");
     _password = document.getElementById("password");
@@ -42,8 +38,10 @@ function login() {
             }
             */
            
-            switch(this.responseText) {
+            switch(this.responseText.substring(0, 3)) {
                 case "900":
+                    window.localStorage.setItem("LOGIN_KEY", this.responseText.substring(3));
+                    window.localStorage.setItem("USERNAME", username);
                     window.location.href = "App.html";
                 case "901":
                     document.getElementById("errorText").innerHTML = "Error! Incorrect username or password.";
@@ -57,5 +55,5 @@ function login() {
         }
         
     }
-    http.send("username="+username+"&password="+password+"&newaccount="+iscreatingnewaccount);
+    http.send("username="+username+"&password="+password+"&newaccount="+iscreatingnewaccount+"&mode="+1);
 }
