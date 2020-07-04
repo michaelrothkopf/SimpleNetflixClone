@@ -27,4 +27,4 @@ http.onreadystatechange = function () {
         }
     }
 }
-http.send("username="+username+"&key="+key);
+http.send("username="+username+"&key="+key+"&mode=-1");

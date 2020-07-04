@@ -32,8 +32,12 @@ function verifyLoginKey($username, $key) {
     $timestr = $data->key_expires->date;
     $existingKeyExpireTime = strtotime($timestr);
 
+    $dt = new DateTime();
+    //$_interval = $existingKeyExpireTime->diff($dt);
+    //$interval = $interval->format('%s');
+
     if (password_verify($key, $existingKey)) {
-        if (new DateTime() < $existingKeyExpireTime) {
+        if ($dt < $existingKeyExpireTime) {
             return true;
         } else {
             return false;
