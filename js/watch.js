@@ -17,13 +17,14 @@ http.onreadystatechange = function () {
         }
         */
         
-        switch(this.responseText.substring(0, 3)) {
-            case "900":
-                video = document.getElementById("video");
-                filename = window.location.search.substr(1);
-                video.src = "video/" + filename.substr(6) + ".MOV";
-            case "920":
-                document.getElementById("errorText").innerHTML = "Login error: it seems you aren't logged in :(";
+        if (this.responseText.substring(0, 3) == "900") {
+            console.log("0");
+            video = document.getElementById("video");
+            filename = window.location.search.substr(1);
+            video.src = "video/" + filename.substr(6) + ".MOV";
+        } else {
+            console.log("1");
+            document.getElementById("errorText").innerHTML = "Login error: it seems you aren't logged in :(";
         }
     }
 }

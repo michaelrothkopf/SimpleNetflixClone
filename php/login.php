@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 
 function create_account($username, $password) {
     $_password = password_hash($password, PASSWORD_DEFAULT);
@@ -90,9 +91,9 @@ if ($_POST["mode"] == 1) {
     $key = $_POST["key"];
 
     if (verifyLoginKey($username, $key)) {
-        return "900";
+        echo "900";
     } else {
-        return "920";
+        echo "920";
     }
 }
 ?>
